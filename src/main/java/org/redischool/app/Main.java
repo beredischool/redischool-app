@@ -20,6 +20,7 @@ public class Main {
         Teacher teacher  = new Teacher("fxccc",1990,55);
 
 
+
         List<Student> students = new ArrayList();
         students.add(stundent);
         studentsStatsCalculator.calculateAverageAge(students);

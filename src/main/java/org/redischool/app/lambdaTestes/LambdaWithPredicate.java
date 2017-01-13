@@ -33,7 +33,7 @@ public class LambdaWithPredicate {
 
     public static void main(String []args){
         Person x=new Student("ahmad",1922);
-        checkPersonWithLambda(x,p->p.getAge()<60 );
+        checkPersonWithLambda(x,p->p.getAge()<60 && p.getAge()>18);
         checkPersonWithLambda(x,p->p.getAge()>60);
         checkPersonWithLambdaAndConsumer(x,p->p.getAge()>60,t->t.setName("a"));
 
