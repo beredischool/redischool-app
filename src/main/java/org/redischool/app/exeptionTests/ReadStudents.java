@@ -25,26 +25,26 @@ public class ReadStudents {
         String path = resource.getPath();
         File file = new File(path);
         List<Student> students = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+
+        try ( BufferedReader reader = new BufferedReader(new FileReader(path))){
+
             String line;
-            try {
                 while ((line = reader.readLine()) != null) {
                     String[] arr = line.split(",");
                     try {
                         int birthYear = Integer.parseInt(arr[1]);
                         students.add(new Student(arr[0], birthYear));
-                    } catch (NumberFormatException e) {
+                    }
+
+                    catch (NumberFormatException e) {
 
                         continue;
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
         return students;
     }
 
